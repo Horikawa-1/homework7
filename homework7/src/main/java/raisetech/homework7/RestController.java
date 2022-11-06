@@ -3,7 +3,6 @@ package raisetech.homework7;
 import java.net.URI;
 import java.util.List;
 import java.util.Map;
-import org.hibernate.validator.constraints.Length;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -20,11 +19,12 @@ public class RestController {
 
   @GetMapping("/names")
   public List<String> getNames() {
-    return List.of("akane", "nabiki");
+    return List.of("Akane", "Nabiki", "Kasumi");
   }
 
+  //POSTメソッドは入力した文字列が8文字以上20字以下なら受け付けるようにする
   @PostMapping("/names")
-  public ResponseEntity<String> createName(@RequestBody @RequestParam(value = "text") String text, @Validated @Length(min=8, max=20 ) CreateForm form) {
+  public ResponseEntity<String> createUser(@RequestBody @RequestParam(value = "name") String name, @Validated UserForm form) {
     // 登録処理は省略
     URI url = UriComponentsBuilder.fromUriString("http://localhost:8080")
         .path("/names/id") // id部分は実際に登録された際に発⾏したidを設定する
@@ -33,14 +33,18 @@ public class RestController {
     return ResponseEntity.created(url).body("name successfully created");
   }
 
+  //PATCHメソッドはPOSTと同じく入力した文字列が8文字以上20字以下なら受け付けるようにして、URLパラメータの「names/」の後に整数を入れる仕様
   @PatchMapping("/names/{id}")
-  public ResponseEntity<Map<String, String>> update(@PathVariable("id") int id, @RequestBody UpdateForm form) {
-    // 更新処理は省略
+  public ResponseEntity<Map<String, String>> updateUser(@PathVariable("id") int id, @RequestBody @RequestParam(value = "name") String name, @Validated UserForm form) {
+    URI url = UriComponentsBuilder.fromUriString("http://localhost:8080")
+        .path("/names/id") // id部分は実際に登録された際に発⾏したidを設定する
+        .build()
+        .toUri();
     return ResponseEntity.ok(Map.of("message", "name successfully updated"));
   }
 
   @DeleteMapping("/names/{id}")
-  public ResponseEntity<Map<String, String>> delete(@PathVariable("id") int id) {
+  public ResponseEntity<Map<String, String>> deleteUser(@PathVariable("id") int id) {
     return ResponseEntity.ok(Map.of("message", "name successfully deleted"));
   }
 
