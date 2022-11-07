@@ -27,7 +27,7 @@ public class RestController {
   public ResponseEntity<String> createUser(@RequestBody @RequestParam(value = "name") String name, @Validated UserForm form) {
     // 登録処理は省略
     URI url = UriComponentsBuilder.fromUriString("http://localhost:8080")
-        .path("/names/id") // id部分は実際に登録された際に発⾏したidを設定する
+        .queryParam("names", "name")
         .build()
         .toUri();
     return ResponseEntity.created(url).body("name successfully created");
@@ -37,7 +37,7 @@ public class RestController {
   @PatchMapping("/names/{id}")
   public ResponseEntity<Map<String, String>> updateUser(@PathVariable("id") int id, @RequestBody @RequestParam(value = "name") String name, @Validated UserForm form) {
     URI url = UriComponentsBuilder.fromUriString("http://localhost:8080")
-        .path("/names/id") // id部分は実際に登録された際に発⾏したidを設定する
+        .queryParam("names", "name")
         .build()
         .toUri();
     return ResponseEntity.ok(Map.of("message", "name successfully updated"));
