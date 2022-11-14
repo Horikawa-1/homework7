@@ -3,6 +3,7 @@ package raisetech.homework7;
 import java.net.URI;
 import java.util.List;
 import java.util.Map;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -24,22 +25,25 @@ public class RestController {
 
   //POSTメソッドは入力した文字列が8文字以上20字以下なら受け付けるようにする
   @PostMapping("/names")
-  public ResponseEntity<String> createUser(@RequestBody @RequestParam(value = "name") String name, @Validated UserForm form) {
+  public ResponseEntity<String> createUser(@RequestBody @RequestParam(value = "name") String name, @Validated @NotNull UserForm form, UriComponentsBuilder builder) {
     // 登録処理は省略
-    URI url = UriComponentsBuilder.fromUriString("http://localhost:8080")
-        .queryParam("names", "name")
-        .build()
-        .toUri();
+    String path = "/names/" + form.getName();
+
+    URI url = builder.path(path).build().toUri();
+
     return ResponseEntity.created(url).body("name successfully created");
+
   }
 
   //PATCHメソッドはPOSTと同じく入力した文字列が8文字以上20字以下なら受け付けるようにして、URLパラメータの「names/」の後に整数を入れる仕様
   @PatchMapping("/names/{id}")
-  public ResponseEntity<Map<String, String>> updateUser(@PathVariable("id") int id, @RequestBody @RequestParam(value = "name") String name, @Validated UserForm form) {
-    URI url = UriComponentsBuilder.fromUriString("http://localhost:8080")
-        .queryParam("names", "name")
-        .build()
-        .toUri();
+  public ResponseEntity<Map<String, String>> updateUser(@PathVariable("id") int id, @RequestBody @RequestParam(value = "name") String name, @Validated UserForm form, UriComponentsBuilder builder) {
+    String ID = Integer.valueOf(id).toString();
+
+    String path = "/names/" + form.getName();
+
+    URI url = builder.path(path).build().toUri();
+
     return ResponseEntity.ok(Map.of("message", "name successfully updated"));
   }
 
