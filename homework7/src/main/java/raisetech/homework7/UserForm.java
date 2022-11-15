@@ -1,10 +1,12 @@
 package raisetech.homework7;
 
+import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 
 public class UserForm {
 
-  @Length(min=8, max=20 )
+  @NotNull
+  @Length(min = 1, max = 19)
   private String name;
   public String getName() {
     return name;
