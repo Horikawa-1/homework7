@@ -23,7 +23,7 @@ public class RestController {
     return List.of("Akane", "Nabiki", "Kasumi");
   }
 
-  //POSTメソッドは入力した文字列が8文字以上20字以下なら受け付けるようにする
+  //POSTメソッドは入力した文字列が空文字、null、20文字以上なら受け取らない
   @PostMapping("/names")
   public ResponseEntity<String> createUser(@RequestBody @RequestParam(value = "name") String name, @Validated UserForm form, UriComponentsBuilder builder) {
     // 登録処理は省略
@@ -35,12 +35,12 @@ public class RestController {
 
   }
 
-  //PATCHメソッドはPOSTと同じく入力した文字列が8文字以上20字以下なら受け付けるようにして、URLパラメータの「names/」の後に整数を入れる仕様
+  //PATCHメソッドはPOSTと同じく入力した文字列が空文字、null、20文字以上なら受け取らないで、URLパラメータの「names/」の後に整数を入れる仕様
   @PatchMapping("/names/{id}")
   public ResponseEntity<Map<String, String>> updateUser(@PathVariable("id") int id, @RequestBody @RequestParam(value = "name") String name, @Validated UserForm form, UriComponentsBuilder builder) {
-    String ID = String.valueOf(id);
+    String idNumber = String.valueOf(id);
 
-    String path = "/names/" + ID + form.getName();
+    String path = "/names/" + idNumber + form.getName();
 
     URI url = builder.path(path).build().toUri();
 
