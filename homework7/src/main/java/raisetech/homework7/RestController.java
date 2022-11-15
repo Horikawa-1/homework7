@@ -38,7 +38,7 @@ public class RestController {
   //PATCHメソッドはPOSTと同じく入力した文字列が8文字以上20字以下なら受け付けるようにして、URLパラメータの「names/」の後に整数を入れる仕様
   @PatchMapping("/names/{id}")
   public ResponseEntity<Map<String, String>> updateUser(@PathVariable("id") int id, @RequestBody @RequestParam(value = "name") String name, @Validated UserForm form, UriComponentsBuilder builder) {
-    String ID = Integer.valueOf(id).toString();
+    String ID = String.valueOf(id);
 
     String path = "/names/" + ID + form.getName();
 
