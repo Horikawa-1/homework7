@@ -25,7 +25,7 @@ public class RestController {
 
   //POSTメソッドは入力した文字列が8文字以上20字以下なら受け付けるようにする
   @PostMapping("/names")
-  public ResponseEntity<String> createUser(@RequestBody @RequestParam(value = "name") String name, @Validated @NotNull UserForm form, UriComponentsBuilder builder) {
+  public ResponseEntity<String> createUser(@RequestBody @RequestParam(value = "name") String name, @Validated UserForm form, UriComponentsBuilder builder) {
     // 登録処理は省略
     String path = "/names/" + form.getName();
 
@@ -40,7 +40,7 @@ public class RestController {
   public ResponseEntity<Map<String, String>> updateUser(@PathVariable("id") int id, @RequestBody @RequestParam(value = "name") String name, @Validated UserForm form, UriComponentsBuilder builder) {
     String ID = Integer.valueOf(id).toString();
 
-    String path = "/names/" + form.getName();
+    String path = "/names/" + ID + form.getName();
 
     URI url = builder.path(path).build().toUri();
 
