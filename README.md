@@ -1,4 +1,4 @@
-Javaフルコース第7回の課題です。
+Javaフルコース第7回の課題(HTTPメソッドのGET/POST/PATCH/DELETEのリクエストを扱えるControllerを作る)です。
 
 GETメソッドは"Akane", "Nabiki", "Kasumi"と表示されるようになっています。![スクリーンショット (86)](https://user-images.githubusercontent.com/111167638/200169353-12beefcc-79f6-4171-94c0-faba2ce585d7.png)
 
