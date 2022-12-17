@@ -1,16 +1,16 @@
+Javaフルコースの第7回の課題(REST APIの実装)です。
 GETメソッドは"Akane", "Nabiki", "Kasumi"と表示されるようになっています。![スクリーンショット (86)](https://user-images.githubusercontent.com/111167638/200169353-12beefcc-79f6-4171-94c0-faba2ce585d7.png)
 
-POSTメソッドはクエリパラメータで文字列を入力して、空文字、null、20文字以上なら受け取らない仕様です。（以下文字数0,1,18,19,20文字の例）
-![スクリーンショット (118)](https://user-images.githubusercontent.com/111167638/201894281-f5e297d7-bfd8-4e39-b060-503abc06bf2b.png)
-![スクリーンショット (119)](https://user-images.githubusercontent.com/111167638/201894292-003f5261-478a-4a68-af25-23b727c70445.png)
-![スクリーンショット (130)](https://user-images.githubusercontent.com/111167638/201895520-699c10bc-9dd3-4ab1-800d-dde7de6747e4.png)
-
-![スクリーンショット (120)](https://user-images.githubusercontent.com/111167638/201894295-8c237580-3cf1-413c-9ca0-5d25cf419b91.png)
-![スクリーンショット (121)](https://user-images.githubusercontent.com/111167638/201894297-27c8e632-245b-4718-b9a3-fea3f321ff78.png)
-![スクリーンショット (122)](https://user-images.githubusercontent.com/111167638/201894300-599023c0-07e8-4234-b620-f1e547ba31df.png)
+POSTメソッドはクエリパラメータで文字列を入力して、空文字、null、20文字以上なら受け取らない仕様です。（以下NULL、空文字、文字数1,19,20文字の場合）
+![スクリーンショット (144)](https://user-images.githubusercontent.com/111167638/208240312-4904ce6e-73a4-4c6a-bd36-016d98680908.png)
+![スクリーンショット (145)](https://user-images.githubusercontent.com/111167638/208240314-0cf57e35-37c3-4a99-a7ed-079d9e25c3c1.png)
+![スクリーンショット (146)](https://user-images.githubusercontent.com/111167638/208240316-7172c2eb-7f98-4d57-8bb3-db6ac611ebca.png)
+![スクリーンショット (147)](https://user-images.githubusercontent.com/111167638/208240317-4f70b07c-2d5a-4bd9-848b-33d19cd9d80d.png)
+![スクリーンショット (148)](https://user-images.githubusercontent.com/111167638/208240319-f9c809b1-364f-4cfb-88c9-29e78d52738f.png)
 
 
-PATCHメソッドはPOSTと同じく入力した文字列が空文字、null、20文字以上なら受け取らないで、URLパラメータの「names/」の後に整数を入れる仕様です。（以下names/の後に整数を入れない場合と、入れて文字数0,1,18,19,20文字の場合の例）
+
+PATCHメソッドはPOSTと同じく入力した文字列が空文字、null、20文字以上なら受け取らないで、URLパラメータの「names/」の後に整数を入れる仕様です。（以下NULL、空文字、文字数1,19,20文字の場合）
 ![スクリーンショット (123)](https://user-images.githubusercontent.com/111167638/201895288-6198fad4-59d5-4a99-b444-c7406945802d.png)
 ![スクリーンショット (124)](https://user-images.githubusercontent.com/111167638/201895297-5f1f1714-ec45-437e-943a-77e7c977458b.png)
 ![スクリーンショット (125)](https://user-images.githubusercontent.com/111167638/201895300-09f2ffd2-d48d-4dda-bb2f-a1ec04d9b249.png)
