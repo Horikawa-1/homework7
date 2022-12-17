@@ -3,7 +3,6 @@ package raisetech.homework7;
 import java.net.URI;
 import java.util.List;
 import java.util.Map;
-import org.jetbrains.annotations.NotNull;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -37,17 +36,12 @@ public class RestController {
 
   //PATCHメソッドはPOSTと同じく入力した文字列が空文字、null、20文字以上なら受け取らないで、URLパラメータの「names/」の後に整数を入れる仕様
   @PatchMapping("/names/{id}")
-  public ResponseEntity<Map<String, String>> updateUser(@PathVariable("id") String id, @RequestBody @RequestParam(value = "name") String name, @Validated UserForm form, UriComponentsBuilder builder) {
-
-    String path = "/names/" + form.getId() + form.getName();
-
-    URI url = builder.path(path).build().toUri();
-
+  public ResponseEntity<Map<String, String>> updateUser(@PathVariable("id") String id,  @RequestBody @Validated UserForm form) {
     return ResponseEntity.ok(Map.of("message", "name successfully updated"));
   }
 
   @DeleteMapping("/names/{id}")
-  public ResponseEntity<Map<String, String>> deleteUser(@PathVariable("id") int id) {
+  public ResponseEntity<Map<String, String>> deleteUser(@PathVariable("id") String id) {
     return ResponseEntity.ok(Map.of("message", "name successfully deleted"));
   }
 
