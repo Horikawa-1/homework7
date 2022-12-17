@@ -1,20 +1,29 @@
-Javaフルコース第7回の課題(HTTPメソッドのGET/POST/PATCH/DELETEのリクエストを扱えるControllerを作る)です。
+Javaフルコースの第7回の課題(HTTPメソッドのGET/POST/PATCH/DELETEのリクエストを扱えるControllerを作る)です。
 
 GETメソッドは"Akane", "Nabiki", "Kasumi"と表示されるようになっています。![スクリーンショット (86)](https://user-images.githubusercontent.com/111167638/200169353-12beefcc-79f6-4171-94c0-faba2ce585d7.png)
 
-POSTメソッドはクエリパラメータで文字列を入力すると、8文字以上20字以下の場合受け付けるようになっています。（以下文字数7,8,9,19,20,21の例）
-![スクリーンショット (87)](https://user-images.githubusercontent.com/111167638/200169402-6c38d956-b014-441e-a11b-b38331250284.png)
-![スクリーンショット (88)](https://user-images.githubusercontent.com/111167638/200169403-cd4ba7a7-72e7-4fc3-8d3d-f776c74fedf9.png)
-![スクリーンショット (89)](https://user-images.githubusercontent.com/111167638/200169404-98797a61-d6db-42df-a33c-0298b8c45e40.png)
-![スクリーンショット (90)](https://user-images.githubusercontent.com/111167638/200169405-66edd3e7-75c9-4d00-b527-181ccf1a0a9a.png)
-![スクリーンショット (91)](https://user-images.githubusercontent.com/111167638/200169407-b6305415-acc1-4872-a3b2-f807337fc72d.png)
-![スクリーンショット (92)](https://user-images.githubusercontent.com/111167638/200169400-0d27072b-d337-4330-83e7-d735999f2580.png)
+---
+---
 
-PATCHメソッドも同じ仕様です。（以下文字数7,8,9,19,20,21の例）![スクリーンショット (93)](https://user-images.githubusercontent.com/111167638/200169535-04088cf2-46dc-451d-9a2d-af6937031fda.png)
-![スクリーンショット (94)](https://user-images.githubusercontent.com/111167638/200169538-2e0876be-c528-43e8-b452-a795292e7ad2.png)
-![スクリーンショット (95)](https://user-images.githubusercontent.com/111167638/200169542-bf006ba7-6087-4694-8e77-f058bbb9d79d.png)
-![スクリーンショット (96)](https://user-images.githubusercontent.com/111167638/200169544-ae223dfd-9b52-47fa-b5df-c92f60737d85.png)
-![スクリーンショット (97)](https://user-images.githubusercontent.com/111167638/200169547-471d7a80-466f-40f0-9264-d61de653251a.png)
-![スクリーンショット (98)](https://user-images.githubusercontent.com/111167638/200169551-d723df3b-2d23-4956-a0a3-620adedd04d9.png)
+POSTメソッドはクエリパラメータで文字列を入力して、空文字、null、20文字以上なら受け取らなく、それ以外は「name successfully created」と表示する仕様です。（以下NULL、空文字、文字数1,19,20文字の場合）
+![スクリーンショット (144)](https://user-images.githubusercontent.com/111167638/208240312-4904ce6e-73a4-4c6a-bd36-016d98680908.png)
+![スクリーンショット (145)](https://user-images.githubusercontent.com/111167638/208240314-0cf57e35-37c3-4a99-a7ed-079d9e25c3c1.png)
+![スクリーンショット (146)](https://user-images.githubusercontent.com/111167638/208240316-7172c2eb-7f98-4d57-8bb3-db6ac611ebca.png)
+![スクリーンショット (147)](https://user-images.githubusercontent.com/111167638/208240317-4f70b07c-2d5a-4bd9-848b-33d19cd9d80d.png)
+![スクリーンショット (148)](https://user-images.githubusercontent.com/111167638/208240319-f9c809b1-364f-4cfb-88c9-29e78d52738f.png)
 
-DELETEメソッドはクエリパラメータを入力するとname successfully deletedと表示されるようになっています。![スクリーンショット (99)](https://user-images.githubusercontent.com/111167638/200169583-424ed335-7827-48b8-8deb-e2695445df0d.png)
+---
+---
+
+PATCHメソッドはPOSTと同じく入力した文字列が空文字、null、20文字以上なら受け取らなく、それ以外は「name successfully created」と表示して、URLパラメータの「names/」の後に整数を入れる仕様です。（以下NULL、空文字、文字数1,19,20文字の場合）
+![スクリーンショット (155)](https://user-images.githubusercontent.com/111167638/208240702-148d88a4-39da-4258-abb5-c6674656b239.png)
+![スクリーンショット (156)](https://user-images.githubusercontent.com/111167638/208240705-09a18b8f-13c5-4cab-acf7-f84eeaf48502.png)
+![スクリーンショット (157)](https://user-images.githubusercontent.com/111167638/208240708-5605a5af-529d-4fbc-8066-644ab7238c23.png)
+![スクリーンショット (158)](https://user-images.githubusercontent.com/111167638/208240710-3dec349e-568a-4ea0-918b-781737f30a3d.png)
+![スクリーンショット (154)](https://user-images.githubusercontent.com/111167638/208240712-bf9edbf8-f0cc-4430-a449-05407f6ae460.png)
+
+---
+---
+
+DELETEメソッドはクエリパラメータを入力すると「name successfully deleted」と表示されるようになっています。
+![スクリーンショット (159)](https://user-images.githubusercontent.com/111167638/208240733-0e68647d-8816-4c87-b230-14c5a38862a8.png)
