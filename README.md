@@ -11,13 +11,13 @@ POSTメソッドはクエリパラメータで文字列を入力して、空文�
 
 
 PATCHメソッドはPOSTと同じく入力した文字列が空文字、null、20文字以上なら受け取らないで、URLパラメータの「names/」の後に整数を入れる仕様です。（以下NULL、空文字、文字数1,19,20文字の場合）
-![スクリーンショット (123)](https://user-images.githubusercontent.com/111167638/201895288-6198fad4-59d5-4a99-b444-c7406945802d.png)
-![スクリーンショット (124)](https://user-images.githubusercontent.com/111167638/201895297-5f1f1714-ec45-437e-943a-77e7c977458b.png)
-![スクリーンショット (125)](https://user-images.githubusercontent.com/111167638/201895300-09f2ffd2-d48d-4dda-bb2f-a1ec04d9b249.png)
-![スクリーンショット (126)](https://user-images.githubusercontent.com/111167638/201895303-6b5a3008-c898-444b-aced-42f8944afce1.png)
-![スクリーンショット (127)](https://user-images.githubusercontent.com/111167638/201895306-01120e44-1d79-4f22-a553-069ce05580ca.png)
-![スクリーンショット (128)](https://user-images.githubusercontent.com/111167638/201895309-ed7ab341-4f19-402a-a87a-28837926c838.png)
-![スクリーンショット (129)](https://user-images.githubusercontent.com/111167638/201895315-2a265f03-349a-498d-81e3-8c26eec359db.png)
+![スクリーンショット (155)](https://user-images.githubusercontent.com/111167638/208240702-148d88a4-39da-4258-abb5-c6674656b239.png)
+![スクリーンショット (156)](https://user-images.githubusercontent.com/111167638/208240705-09a18b8f-13c5-4cab-acf7-f84eeaf48502.png)
+![スクリーンショット (157)](https://user-images.githubusercontent.com/111167638/208240708-5605a5af-529d-4fbc-8066-644ab7238c23.png)
+![スクリーンショット (158)](https://user-images.githubusercontent.com/111167638/208240710-3dec349e-568a-4ea0-918b-781737f30a3d.png)
+![スクリーンショット (154)](https://user-images.githubusercontent.com/111167638/208240712-bf9edbf8-f0cc-4430-a449-05407f6ae460.png)
 
 
-DELETEメソッドはクエリパラメータを入力するとname successfully deletedと表示されるようになっています。![スクリーンショット (99)](https://user-images.githubusercontent.com/111167638/200169583-424ed335-7827-48b8-8deb-e2695445df0d.png)
+
+DELETEメソッドはクエリパラメータを入力するとname successfully deletedと表示されるようになっています。
+![スクリーンショット (159)](https://user-images.githubusercontent.com/111167638/208240733-0e68647d-8816-4c87-b230-14c5a38862a8.png)
