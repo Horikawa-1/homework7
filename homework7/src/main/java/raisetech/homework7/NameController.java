@@ -37,7 +37,7 @@ public class NameController {
   //PATCHメソッドはPOSTと同じく入力した文字列が空文字、null、20文字以上なら受け取らないで、URLパラメータの「names/」の後に整数を入れる仕様
   @PatchMapping("/names/{id}")
   public Map<String, String> updateUser(@PathVariable("id") String id,  @RequestBody @Validated UserForm form) {
-    return Map.of("message", "name successfully updated");
+    return Map("message", "name successfully updated");
   }
 
   @DeleteMapping("/names/{id}")
