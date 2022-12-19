@@ -12,10 +12,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-@org.springframework.web.bind.annotation.RestController
-public class RestController {
+@RestController
+public class NameController {
 
   @GetMapping("/names")
   public List<String> getNames() {
@@ -31,18 +32,16 @@ public class RestController {
     URI url = builder.path(path).build().toUri();
 
     return ResponseEntity.created(url).body("name successfully created");
-
   }
 
   //PATCHメソッドはPOSTと同じく入力した文字列が空文字、null、20文字以上なら受け取らないで、URLパラメータの「names/」の後に整数を入れる仕様
   @PatchMapping("/names/{id}")
-  public ResponseEntity<Map<String, String>> updateUser(@PathVariable("id") String id,  @RequestBody @Validated UserForm form) {
-    return ResponseEntity.ok(Map.of("message", "name successfully updated"));
+  public Map<String, String> updateUser(@PathVariable("id") String id,  @RequestBody @Validated UserForm form) {
+    return Map.of("message", "name successfully updated");
   }
 
   @DeleteMapping("/names/{id}")
-  public ResponseEntity<Map<String, String>> deleteUser(@PathVariable("id") String id) {
-    return ResponseEntity.ok(Map.of("message", "name successfully deleted"));
+  public Map<String, String> deleteUser(@PathVariable("id") String id) {
+    return Map.of("message", "name successfully deleted");
   }
-
 }
